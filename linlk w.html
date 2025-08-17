@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LINK W</title>
+  <meta name="description" content="LINK W — نظّم وشارك روابطك بسهولة وأمان.">
+
+  <!-- خط عربي -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { cairo: ['Cairo', 'system-ui', 'sans-serif'] },
+          colors: { brand: '#7C3AED' }
+        }
+      }
+    }
+  </script>
+
+  <!-- أيقونات -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    html, body { font-family: 'Cairo', system-ui, sans-serif; }
+
+    /* هفر للكروت */
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+
+    /* انتقال ناعم لألوان الخلفية/النص/الحدود عند تغيير الوضع */
+    .transition-theme {
+      transition: background-color .35s ease, color .35s ease, border-color .35s ease;
+    }
+
+    /* تأثير الفيد للصور */
+    .fade { transition: opacity .5s ease-in-out; opacity: 1; }
+    .fade.fade-out { opacity: 0; } /* ← بديل عن hidden علشان ما نستخدمش display:none */
+
+    /* حركة أيقونة زر الوضع */
+    .spin { display: inline-block; animation: spin .6s ease-in-out; }
+    @keyframes spin {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+  </style>
+
+  <!-- تهيئة الوضع حسب تفضيل المستخدم/النظام -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+</head>
+<body class="transition-theme bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- الهيدر + زر الوضع الليلي -->
+  <header class="transition-theme sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2 font-extrabold text-xl">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-700 text-white">L</span>
+        <span>LINK W</span>
+      </div>
+      <button id="themeToggle"
+              class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300"
+              aria-label="تبديل الوضع">
+        🌙
+      </button>
+    </div>
+  </header>
+
+  <!-- العنوان + الوصف -->
+  <section class="max-w-3xl mx-auto px-4 py-14 text-center">
+    <h1 class="text-4xl font-extrabold">LINK W</h1>
+    <p class="mt-4 text-gray-600 dark:text-gray-300">
+      مع LINK W هتجمع كل روابطك المهمة في مكان واحد منظم وتقدر توصل لها أو تشاركها مع أصدقائك وزملائك بضغطة زر بسرعة وأمان.
+    </p>
+  </section>
+
+  <!-- صور التطبيق (3 أعمدة على الشاشات الكبيرة) -->
+  <section class="max-w-6xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold text-center">صور من التطبيق</h2>
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img
+        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
+        alt="شاشة 1"
+        loading="lazy"
+        src="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
+        data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
+        data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg"
+      >
+      <img
+        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
+        alt="شاشة 2"
+        loading="lazy"
+        src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
+        data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
+        data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg"
+      >
+      <img
+        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
+        alt="شاشة 3"
+        loading="lazy"
+        src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
+        data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
+        data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg"
+      >
+    </div>
+  </section>
+
+  <!-- زر التحميل -->
+  <div class="flex justify-center py-12">
+    <a href="#رابط_التحميل"
+       class="transition-theme inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-7 py-4 rounded-2xl text-lg shadow card-hover">
+      <i class="fa-solid fa-download"></i>
+      <span>حمّل التطبيق الآن</span>
+    </a>
+  </div>
+
+  <!-- الفوتر -->
+  <footer class="transition-theme bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 text-center py-6 text-gray-600 dark:text-gray-300 text-sm">
+    © <span id="year"></span> تم تطويره بواسطة | م/ محمد عبدالله
+  </footer>
+
+  <!-- JS لتبديل الوضع + حركة الزر + تبديل الصور مع الفيد -->
+  <script>
+    const html = document.documentElement;
+    const toggleBtn = document.getElementById('themeToggle');
+
+    function applyIcon() {
+      toggleBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
+    }
+
+    function swapImages() {
+      const isDark = html.classList.contains('dark');
+      document.querySelectorAll('img[data-light][data-dark]').forEach(img => {
+        // ابدأ انتقال الفيد
+        img.classList.add('fade-out');
+        setTimeout(() => {
+          const target = isDark ? img.getAttribute('data-dark') : img.getAttribute('data-light');
+          if (target) img.src = target;
+          // ارجّع الفيد
+          img.classList.remove('fade-out');
+        }, 300);
+      });
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+
+      // حركة دوران للأيقونة
+      toggleBtn.classList.add('spin');
+      setTimeout(() => toggleBtn.classList.remove('spin'), 600);
+
+      applyIcon();
+      swapImages();
+    });
+
+    // تهيئة عند التحميل
+    applyIcon();
+    swapImages();
+
+    // سنة الفوتر
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
