@@ -3,11 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LINK W</title>
-  <meta name="description" content="LINK W — نظّم وشارك روابطك بسهولة وأمان.">
+  <title>LINK W — نظّم وشارك روابطك بسهولة وأمان</title>
+  <meta name="description" content="LINK W — كل روابطك في مكان واحد. سرعة، أمان، ومشاركة سهلة.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://example.com/"> <!-- TODO: ضع رابطك النهائي هنا -->
 
-  <!-- خط عربي -->
+  <!-- تحسين المشاركة على السوشيال (OG + Twitter) -->
+  <meta property="og:title" content="LINK W — نظّم وشارك روابطك بسهولة وأمان">
+  <meta property="og:description" content="كل روابطك في مكان واحد. سرعة، أمان، ومشاركة سهلة.">
+  <meta property="og:image" content="images/cover-og.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_AR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- ألوان الواجهة للنظام والمتصفح -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
+
+  <!-- تحسين التحميل: خطوط وصور حرجة -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg" imagesrcset="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg 800w" imagesizes="(max-width: 640px) 100vw, 33vw">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,7 +34,7 @@
       darkMode: 'class',
       theme: {
         extend: {
-          fontFamily: { cairo: ['Cairo', 'system-ui', 'sans-serif'] },
+          fontFamily: { cairo: ['Cairo','system-ui','sans-serif'] },
           colors: { brand: '#7C3AED' }
         }
       }
@@ -24,36 +42,25 @@
   </script>
 
   <!-- أيقونات -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/icon-180.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
     html, body { font-family: 'Cairo', system-ui, sans-serif; }
-
-    /* هفر للكروت */
     .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.12); }
-
-    /* انتقال ناعم لألوان الخلفية/النص/الحدود عند تغيير الوضع */
-    .transition-theme {
-      transition: background-color .35s ease, color .35s ease, border-color .35s ease;
-    }
-
-    /* تأثير الفيد للصور */
-    .fade { transition: opacity .5s ease-in-out; opacity: 1; }
-    .fade.fade-out { opacity: 0; } /* ← بديل عن hidden علشان ما نستخدمش display:none */
-
-    /* حركة أيقونة زر الوضع */
+    .transition-theme { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
+    .fade { transition: opacity .4s ease-in-out; opacity: 1; }
+    .fade.fade-out { opacity: 0; }
     .spin { display: inline-block; animation: spin .6s ease-in-out; }
-    @keyframes spin {
-      0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.2); }
-      100% { transform: rotate(360deg) scale(1); }
+    @keyframes spin { 0% { transform: rotate(0) scale(1) } 50% { transform: rotate(180deg) scale(1.2) } 100% { transform: rotate(360deg) scale(1) } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
     }
   </style>
 
-  <!-- تهيئة الوضع حسب تفضيل المستخدم/النظام -->
+  <!-- تهيئة الوضع حسب تفضيل المستخدم/النظام (قبل الرسم لتجنّب الوميض) -->
   <script>
     (function() {
       const saved = localStorage.getItem('theme');
@@ -65,6 +72,26 @@
       }
     })();
   </script>
+
+  <!-- بنية بيانات منظمة (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LINK W",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Android, iOS, Web",
+    "description": "منظّم روابط مع مشاركة سهلة ووضع داكن.",
+    "url": "https://example.com/",
+    "inLanguage": "ar",
+    "creator": {"@type": "Person", "name": "م/ محمد عبدالله"}
+  }
+  </script>
+
+  <!-- سياسة أمن المحتوى (CSP) — عدل النطاقات حسب حاجتك -->
+  <!--
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https://i.postimg.cc data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; connect-src 'self' https://formspree.io;">
+  -->
 </head>
 <body class="transition-theme bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -72,111 +99,327 @@
   <header class="transition-theme sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2 font-extrabold text-xl">
-        <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-700 text-white">L</span>
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-700 text-white" aria-hidden="true">L</span>
         <span>LINK W</span>
       </div>
-      <button id="themeToggle"
-              class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300"
-              aria-label="تبديل الوضع">
-        🌙
-      </button>
+      <button id="themeToggle" class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300" aria-label="تبديل الوضع (فاتح/داكن)" aria-pressed="true">☀️</button>
     </div>
   </header>
 
-  <!-- العنوان + الوصف -->
-  <section class="max-w-3xl mx-auto px-4 py-14 text-center">
-    <h1 class="text-4xl font-extrabold">LINK W</h1>
-    <p class="mt-4 text-gray-600 dark:text-gray-300">
-      مع LINK W هتجمع كل روابطك المهمة في مكان واحد منظم وتقدر توصل لها أو تشاركها مع أصدقائك وزملائك بضغطة زر بسرعة وأمان.
-    </p>
+  <!-- قسم المميزات -->
+  <section id="features" class="transition-theme bg-white dark:bg-gray-950 border-y border-gray-200 dark:border-gray-800 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center">مميزات LINK W</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-300">كل ما تحتاجه لتنظيم ومشاركة روابطك بسهولة وأمان.</p>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- بطاقة -->
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f1">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-bolt"></i></div>
+          <h3 id="f1" class="font-bold text-lg">سرعة وصول فورية</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">رتّب روابطك في مجموعات، ووصل لها بضغطة واحدة.</p>
+        </article>
+
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f2">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-shield"></i></div>
+          <h3 id="f2" class="font-bold text-lg">أمان وخصوصية</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">حماية بياناتك وروابطك بإعدادات خصوصية مرنة.</p>
+        </article>
+
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f3">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-share-nodes"></i></div>
+          <h3 id="f3" class="font-bold text-lg">مشاركة بنقرة</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">انسخ أو شارك قوائم وروابط محددة فورًا.</p>
+        </article>
+
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f4">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></div>
+          <h3 id="f4" class="font-bold text-lg">تصنيفات ذكية</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">فلترة حسب النوع: عمل، دراسة، شخصي… وغيرها.</p>
+        </article>
+
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f5">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <h3 id="f5" class="font-bold text-lg">مزامنة عبر الأجهزة</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">وصول لروابطك من الموبايل والكمبيوتر بسهولة.</p>
+        </article>
+
+        <article class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover" aria-labelledby="f6">
+          <div class="text-blue-700 dark:text-blue-400 text-2xl mb-2" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+          <h3 id="f6" class="font-bold text-lg">واجهة عربية أنيقة</h3>
+          <p class="mt-1 text-gray-600 dark:text-gray-300 text-sm">تصميم بسيط، يدعم الوضع الليلي بشكل كامل.</p>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <!-- صور التطبيق (3 أعمدة على الشاشات الكبيرة) -->
-  <section class="max-w-6xl mx-auto px-4 py-8">
-    <h2 class="text-2xl font-bold text-center">صور من التطبيق</h2>
+  <!-- صور التطبيق (أضف عرض/ارتفاع لتقليل CLS) -->
+  <section class="max-w-6xl mx-auto px-4 py-8" aria-labelledby="galleryTitle">
+    <h2 id="galleryTitle" class="text-2xl font-bold text-center">صور من التطبيق</h2>
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <img
-        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
-        alt="شاشة 1"
-        loading="lazy"
-        src="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
-        data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
-        data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg"
-      >
-      <img
-        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
-        alt="شاشة 2"
-        loading="lazy"
-        src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
-        data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
-        data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg"
-      >
-      <img
-        class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto"
-        alt="شاشة 3"
-        loading="lazy"
-        src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
-        data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
-        data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg"
-      >
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 1" loading="lazy" width="800" height="1600"
+           src="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
+           data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
+           data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg">
+
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 2" loading="lazy" width="800" height="1600"
+           src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
+           data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
+           data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg">
+
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 3" loading="lazy" width="800" height="1600"
+           src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
+           data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
+           data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg">
+    </div>
+  </section>
+
+  <!-- آراء المستخدمين -->
+  <section id="testimonials" class="transition-theme bg-white dark:bg-gray-950 border-y border-gray-200 dark:border-gray-800 py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center">ماذا يقول المستخدمون؟</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-300">آراء حقيقية تساعدك على اتخاذ القرار.</p>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <figure class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+          <div class="flex items-center gap-2 text-yellow-500 mb-3" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-200">وفّر عليّ وقت كبير في تنظيم الروابط. الوصول لأي رابط بقى ضغطة واحدة!</blockquote>
+          <figcaption class="mt-4 text-sm text-gray-500 dark:text-gray-400">أحمد عبد الرحمن</figcaption>
+        </figure>
+
+        <figure class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+          <div class="flex items-center gap-2 text-yellow-500 mb-3" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-200">واجهة بسيطة وأنيقة، ومشاركة الروابط مع الفريق أسهل مما توقعت.</blockquote>
+          <figcaption class="mt-4 text-sm text-gray-500 dark:text-gray-400">ندى مصطفى</figcaption>
+        </figure>
+
+        <figure class="transition-theme bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 card-hover">
+          <div class="flex items-center gap-2 text-yellow-500 mb-3" aria-hidden="true">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <blockquote class="text-gray-700 dark:text-gray-200">دعم للوضع الليلي وتزامن بين الأجهزة — بصراحة بقى أساسي عندي في الشغل.</blockquote>
+          <figcaption class="mt-4 text-sm text-gray-500 dark:text-gray-400">كريم حاتم</figcaption>
+        </figure>
+      </div>
+
+      <p class="mt-8 text-center text-xs text-gray-500 dark:text-gray-400">* الآراء تم جمعها من مستخدمين مبكّرين لتطبيق LINK W.</p>
     </div>
   </section>
 
   <!-- زر التحميل -->
-  <div class="flex justify-center py-12">
-    <a href="#رابط_التحميل"
-       class="transition-theme inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-7 py-4 rounded-2xl text-lg shadow card-hover">
-      <i class="fa-solid fa-download"></i>
+  <div class="flex justify-center py-12" id="download">
+    <a href="#download" aria-label="تحميل تطبيق LINK W" class="transition-theme inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-7 py-4 rounded-2xl text-lg shadow card-hover">
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
       <span>حمّل التطبيق الآن</span>
     </a>
   </div>
+
+  <!-- قسم التواصل -->
+  <section id="contact" class="transition-theme bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 py-12" aria-labelledby="contactTitle">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 id="contactTitle" class="text-2xl md:text-3xl font-extrabold text-center">تواصل معنا</h2>
+      <p class="mt-2 text-center text-gray-600 dark:text-gray-300">هل لديك سؤال أو اقتراح؟ أرسل لنا رسالة وسنرد عليك قريبًا.</p>
+
+      <form id="contactForm" action="https://formspree.io/f/meozwwwo" method="POST" class="mt-10 grid gap-6" novalidate>
+        <input type="hidden" name="_subject" value="رسالة جديدة من نموذج تواصل LINK W">
+        <label class="hidden">لا تملأ هذا الحقل:
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+        </label>
+
+        <div>
+          <label for="name" class="block mb-1 text-sm font-semibold">الاسم</label>
+          <input type="text" id="name" name="name" required minlength="2" autocomplete="name" class="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 transition-theme focus:ring-2 focus:ring-blue-600" aria-required="true" aria-invalid="false">
+        </div>
+
+        <div>
+          <label for="email" class="block mb-1 text-sm font-semibold">البريد الإلكتروني</label>
+          <input type="email" id="email" name="email" required autocomplete="email" class="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 transition-theme focus:ring-2 focus:ring-blue-600" aria-required="true" aria-invalid="false">
+          <p id="quotaHint" class="mt-1 text-xs text-gray-500 dark:text-gray-400"></p>
+        </div>
+
+        <div>
+          <label for="message" class="block mb-1 text-sm font-semibold">الرسالة</label>
+          <textarea id="message" name="message" rows="4" required minlength="10" class="w-full rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 px-4 py-3 transition-theme focus:ring-2 focus:ring-blue-600" aria-required="true" aria-invalid="false"></textarea>
+        </div>
+
+        <button id="submitBtn" type="submit" class="mx-auto w-full md:w-auto px-8 py-3 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white rounded-xl shadow card-hover transition-theme disabled:opacity-60 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> إرسال
+        </button>
+
+        <p id="formStatus" class="hidden text-center text-sm mt-2" aria-live="polite" role="status"></p>
+      </form>
+    </div>
+  </section>
 
   <!-- الفوتر -->
   <footer class="transition-theme bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 text-center py-6 text-gray-600 dark:text-gray-300 text-sm">
     © <span id="year"></span> تم تطويره بواسطة | م/ محمد عبدالله
   </footer>
 
-  <!-- JS لتبديل الوضع + حركة الزر + تبديل الصور مع الفيد -->
+  <!-- JS: تبديل الوضع + تبديل الصور + إرسال الفورم AJAX + حد الإرسال -->
   <script>
+    // ====== وضع ليلي + تبديل صور ======
     const html = document.documentElement;
     const toggleBtn = document.getElementById('themeToggle');
 
     function applyIcon() {
-      toggleBtn.textContent = html.classList.contains('dark') ? '☀️' : '🌙';
+      const isDarkNow = html.classList.contains('dark');
+      toggleBtn.textContent = isDarkNow ? '☀️' : '🌙';
+      toggleBtn.setAttribute('aria-pressed', String(isDarkNow));
     }
-
     function swapImages() {
       const isDark = html.classList.contains('dark');
       document.querySelectorAll('img[data-light][data-dark]').forEach(img => {
-        // ابدأ انتقال الفيد
         img.classList.add('fade-out');
         setTimeout(() => {
           const target = isDark ? img.getAttribute('data-dark') : img.getAttribute('data-light');
-          if (target) img.src = target;
-          // ارجّع الفيد
+          if (target && img.src !== target) img.src = target;
           img.classList.remove('fade-out');
-        }, 300);
+        }, 200);
       });
     }
-
     toggleBtn.addEventListener('click', () => {
       html.classList.toggle('dark');
       localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-
-      // حركة دوران للأيقونة
       toggleBtn.classList.add('spin');
       setTimeout(() => toggleBtn.classList.remove('spin'), 600);
-
       applyIcon();
       swapImages();
     });
-
-    // تهيئة عند التحميل
     applyIcon();
     swapImages();
-
-    // سنة الفوتر
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== حد الإرسال: 3 رسائل/اليوم لكل إيميل (متصفح فقط) ======
+    const RATE_STORE_KEY = 'contactRateV1';
+    const DAILY_LIMIT = 3;
+
+    function todayStr() {
+      const d = new Date();
+      return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+    }
+    function getStore() { try { return JSON.parse(localStorage.getItem(RATE_STORE_KEY)) || {}; } catch { return {}; } }
+    function setStore(obj) { localStorage.setItem(RATE_STORE_KEY, JSON.stringify(obj)); }
+    function keyFor(email) { return (email || '').trim().toLowerCase() + '|' + todayStr(); }
+    function getCount(email) { const store = getStore(); return store[keyFor(email)] || 0; }
+    function incCount(email) { const store = getStore(); const k = keyFor(email); store[k] = (store[k] || 0) + 1; setStore(store); return store[k]; }
+    function remaining(email) { return Math.max(DAILY_LIMIT - getCount(email), 0); }
+
+    // ====== التحقق الفوري من الحقول وقفل الزر ======
+    const contactForm = document.getElementById('contactForm');
+    const formStatus  = document.getElementById('formStatus');
+    const quotaHint   = document.getElementById('quotaHint');
+    const submitBtn   = document.getElementById('submitBtn');
+
+    function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function updateQuotaHint() {
+      const email = (document.getElementById('email')?.value || '').trim();
+      if (!email || !validEmail(email)) { quotaHint.textContent = ''; return; }
+      const rem = remaining(email);
+      quotaHint.textContent = `مسموح لك إرسال ${rem} رسائل اليوم بهذا البريد. الحد اليومي: ${DAILY_LIMIT}.`;
+    }
+
+    function setFieldValidity(el, ok) { el.setAttribute('aria-invalid', String(!ok)); }
+
+    function updateFormState() {
+      const nameEl = document.getElementById('name');
+      const emailEl = document.getElementById('email');
+      const msgEl = document.getElementById('message');
+
+      const fieldsValid =
+        nameEl.value.trim().length >= (parseInt(nameEl.getAttribute('minlength')) || 2) &&
+        validEmail(emailEl.value.trim()) &&
+        msgEl.value.trim().length >= (parseInt(msgEl.getAttribute('minlength')) || 10);
+
+      setFieldValidity(nameEl, nameEl.value.trim().length >= 2);
+      setFieldValidity(emailEl, validEmail(emailEl.value.trim()));
+      setFieldValidity(msgEl, msgEl.value.trim().length >= 10);
+
+      const email = emailEl.value.trim();
+      const underLimit = email && validEmail(email) ? (getCount(email) < DAILY_LIMIT) : false;
+      const canSubmit = fieldsValid && underLimit;
+
+      submitBtn.disabled = !canSubmit;
+      submitBtn.setAttribute('aria-disabled', String(!canSubmit));
+
+      if (email && validEmail(email) && !underLimit) {
+        formStatus.className = "text-center text-sm mt-2 text-red-600";
+        formStatus.textContent = "لقد وصلت للحد الأقصى اليومي (3 رسائل) لهذا البريد. جرّب غدًا.";
+        formStatus.classList.remove('hidden');
+      } else if (formStatus && /الحد الأقصى/.test(formStatus.textContent)) {
+        formStatus.classList.add('hidden');
+        formStatus.textContent = "";
+      }
+    }
+
+    if (contactForm) {
+      ['input','change','keyup'].forEach(evt => {
+        contactForm.addEventListener(evt, (e) => {
+          if (e.target && e.target.id === 'email') updateQuotaHint();
+          updateFormState();
+        });
+      });
+
+      // ====== إرسال AJAX مع فحص الحد اليومي ======
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !validEmail(email) || !message) {
+          formStatus.className = "text-center text-sm mt-2 text-red-600";
+          formStatus.textContent = "من فضلك املأ كل الحقول بشكل صحيح.";
+          formStatus.classList.remove('hidden');
+          updateFormState();
+          return;
+        }
+
+        if (getCount(email) >= DAILY_LIMIT) {
+          formStatus.className = "text-center text-sm mt-2 text-red-600";
+          formStatus.textContent = "لقد وصلت للحد الأقصى اليومي (3 رسائل) لهذا البريد. جرّب غدًا.";
+          formStatus.classList.remove('hidden');
+          updateFormState();
+          return;
+        }
+
+        formStatus.className = "text-center text-sm mt-2 text-gray-500";
+        formStatus.textContent = "جاري الإرسال...";
+        formStatus.classList.remove('hidden');
+        submitBtn.disabled = true;
+
+        try {
+          const data = new FormData(contactForm);
+          const res  = await fetch(contactForm.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+
+          if (res.ok) {
+            incCount(email);
+            formStatus.className = "text-center text-sm mt-2 text-green-600";
+            formStatus.textContent = "تم استلام رسالتك بنجاح. شكرًا لتواصلك!";
+            contactForm.reset();
+            updateQuotaHint();
+          } else {
+            formStatus.className = "text-center text-sm mt-2 text-red-600";
+            formStatus.textContent = "تعذر الإرسال الآن. جرّب لاحقًا أو تواصل عبر البريد.";
+          }
+        } catch (err) {
+          formStatus.className = "text-center text-sm mt-2 text-red-600";
+          formStatus.textContent = "حدث خطأ غير متوقع. برجاء المحاولة لاحقًا.";
+        } finally {
+          submitBtn.disabled = false;
+          updateFormState();
+        }
+      });
+
+      // تهيئة أولية
+      updateQuotaHint();
+      updateFormState();
+    }
   </script>
 </body>
 </html>
