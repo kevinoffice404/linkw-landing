@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- الصفحة الرئيسية -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- قسم المميزات -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/#features</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- صور التطبيق -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/#gallery</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- آراء المستخدمين -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/#testimonials</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- زر التحميل -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/#download</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- تواصل معنا -->
+  <url>
+    <loc>https://kevinoffice404.github.io/linkw-landing/#contact</loc>
+    <lastmod>2025-08-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>
