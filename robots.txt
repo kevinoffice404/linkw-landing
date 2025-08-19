@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# استبعاد ملفات غير مهمة
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Disallow: /draft/
+
+# رابط خريطة الموقع
+Sitemap: https://kevinoffice404.github.io/linkw-landing/sitemap.xml
