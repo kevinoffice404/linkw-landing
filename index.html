@@ -21,6 +21,11 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
 
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.webmanifest"> <!-- TODO: أنشئ الملف وحدث الأيقونات -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <!-- تحسين التحميل: خطوط وصور حرجة -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +53,10 @@
 
   <style>
     html, body { font-family: 'Cairo', system-ui, sans-serif; }
+    /* سلوك تمرير سلس وحجز مساحة للرؤوس المثبتة */
+    html { scroll-behavior: smooth; }
+    :target { scroll-margin-top: 88px; }
+
     .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
     .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.12); }
     .transition-theme { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
@@ -57,6 +66,19 @@
     @keyframes spin { 0% { transform: rotate(0) scale(1) } 50% { transform: rotate(180deg) scale(1.2) } 100% { transform: rotate(360deg) scale(1) } }
     @media (prefers-reduced-motion: reduce) {
       * { animation: none !important; transition: none !important; }
+    }
+
+    /* خلفية ثابتة بسيطة وغير متحركة */
+    body {
+      background:
+        radial-gradient(1200px 800px at 110% -10%, rgba(124,58,237,.08), transparent 60%),
+        radial-gradient(900px 700px at -10% 110%, rgba(59,130,246,.08), transparent 60%),
+        var(--tw-bg-opacity,1);
+    }
+    .dark body, body.dark { background:
+        radial-gradient(1200px 800px at 110% -10%, rgba(167,139,250,.08), transparent 60%),
+        radial-gradient(900px 700px at -10% 110%, rgba(56,189,248,.08), transparent 60%),
+        #0f172a;
     }
   </style>
 
@@ -102,9 +124,47 @@
         <span class="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-blue-700 text-white" aria-hidden="true">L</span>
         <span>LINK W</span>
       </div>
+      <nav class="hidden md:flex items-center gap-5 text-sm" aria-label="روابط أساسية">
+        <a href="#features" class="hover:underline">المميزات</a>
+        <a href="#galleryTitle" class="hover:underline">الصور</a>
+        <a href="#testimonials" class="hover:underline">آراء المستخدمين</a>
+        <a href="#faq" class="hover:underline">الأسئلة الشائعة</a>
+        <a href="#contact" class="hover:underline">تواصل</a>
+      </nav>
       <button id="themeToggle" class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300" aria-label="تبديل الوضع (فاتح/داكن)" aria-pressed="true">☀️</button>
     </div>
   </header>
+
+  <!-- Hero Section -->
+  <section class="relative z-10" id="hero">
+    <div class="max-w-6xl mx-auto px-4 pt-10 pb-12 grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight">
+          LINK W — كل روابطك في مكان واحد <span class="text-blue-700 dark:text-blue-400">أسرع</span>، <span class="text-blue-700 dark:text-blue-400">أذكى</span>، <span class="text-blue-700 dark:text-blue-400">أكثر أمانًا</span>
+        </h1>
+        <p class="mt-4 text-gray-600 dark:text-gray-300 text-lg">نظّم الروابط في مجموعات، شاركها بنقرة، وتابعها عبر كل أجهزتك مع دعم كامل للوضع الليلي.</p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a href="#download" class="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-6 py-3 rounded-2xl shadow card-hover">
+            <i class="fa-solid fa-download"></i> حمّل التطبيق الآن
+          </a>
+          <a href="#features" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl border border-gray-300 dark:border-gray-700 card-hover">
+            تعرّف على المميزات
+          </a>
+        </div>
+        <!-- عناصر ثقة -->
+        <ul class="mt-6 flex flex-wrap gap-3 text-sm text-gray-600 dark:text-gray-300">
+          <li class="inline-flex items-center gap-2"><span class="text-green-600">✅</span> مجاني</li>
+          <li class="inline-flex items-center gap-2"><span class="text-green-600">✅</span> بدون إعلانات مزعجة</li>
+          <li class="inline-flex items-center gap-2"><span class="text-green-600">✅</span> يدعم الوضع الليلي</li>
+        </ul>
+      </div>
+      <div class="relative">
+        <img fetchpriority="high" decoding="async" class="rounded-2xl shadow w-full h-auto"
+             alt="موكاب واجهة تطبيق LINK W على هاتف ذكي"
+             src="https://i.postimg.cc/cCrLVMqk/image.png">
+      </div>
+    </div>
+  </section>
 
   <!-- قسم المميزات -->
   <section id="features" class="transition-theme bg-white dark:bg-gray-950 border-y border-gray-200 dark:border-gray-800 py-12">
@@ -157,17 +217,17 @@
   <section class="max-w-6xl mx-auto px-4 py-8" aria-labelledby="galleryTitle">
     <h2 id="galleryTitle" class="text-2xl font-bold text-center">صور من التطبيق</h2>
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 1" loading="lazy" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="واجهة التطبيق الرئيسية — LINK W" loading="eager" fetchpriority="high" decoding="async" width="800" height="1600"
            src="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
            data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
            data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 2" loading="lazy" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="قائمة المجموعات داخل التطبيق — LINK W" loading="lazy" width="800" height="1600"
            src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="شاشة 3" loading="lazy" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto" alt="مشاركة الروابط مع الفريق — LINK W" loading="lazy" width="800" height="1600"
            src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg">
@@ -218,6 +278,31 @@
     </a>
   </div>
 
+  <!-- قسم الأسئلة الشائعة -->
+  <section id="faq" class="transition-theme bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center">الأسئلة الشائعة</h2>
+      <div class="mt-8 space-y-4">
+        <details class="bg-white dark:bg-gray-950 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+          <summary class="cursor-pointer font-semibold">هل التطبيق مجاني؟</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">نعم، يمكنك استخدام LINK W مجانًا. قد نضيف مزايا مدفوعة اختيارية لاحقًا دون التأثير على المزايا الأساسية.</p>
+        </details>
+        <details class="bg-white dark:bg-gray-950 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+          <summary class="cursor-pointer font-semibold">هل بياناتي آمنة؟</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">نولي الأمان والخصوصية أهمية كبيرة ونستخدم أفضل الممارسات لحماية بياناتك. تحكم كامل في إعدادات الخصوصية.</p>
+        </details>
+        <details class="bg-white dark:bg-gray-950 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+          <summary class="cursor-pointer font-semibold">هل يدعم iOS و Android والويب؟</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">نعم، التطبيق مصمم ليعمل على Android و iOS بالإضافة إلى نسخة الويب.</p>
+        </details>
+        <details class="bg-white dark:bg-gray-950 rounded-xl p-5 border border-gray-200 dark:border-gray-800">
+          <summary class="cursor-pointer font-semibold">هل أستطيع مشاركة مجموعات محددة فقط؟</summary>
+          <p class="mt-2 text-gray-600 dark:text-gray-300">بالتأكيد، يمكنك مشاركة مجموعة معينة أو روابط مختارة فقط بنقرة واحدة.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- قسم التواصل -->
   <section id="contact" class="transition-theme bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 py-12" aria-labelledby="contactTitle">
     <div class="max-w-4xl mx-auto px-4">
@@ -255,12 +340,15 @@
     </div>
   </section>
 
+  <!-- CTA عائم للموبايل -->
+  <a href="#download" class="fixed bottom-4 inset-x-4 md:hidden rounded-xl px-5 py-3 text-center bg-blue-700 text-white shadow-lg" style="display:none" id="floatingCta">حمّل التطبيق</a>
+
   <!-- الفوتر -->
   <footer class="transition-theme bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 text-center py-6 text-gray-600 dark:text-gray-300 text-sm">
     © <span id="year"></span> تم تطويره بواسطة | م/ محمد عبدالله
   </footer>
 
-  <!-- JS: تبديل الوضع + تبديل الصور + إرسال الفورم AJAX + حد الإرسال -->
+  <!-- JS: تبديل الوضع + تبديل الصور + إرسال الفورم AJAX + حد الإرسال + SW + CTA عائم -->
   <script>
     // ====== وضع ليلي + تبديل صور ======
     const html = document.documentElement;
@@ -293,6 +381,14 @@
     applyIcon();
     swapImages();
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== CTA عائم للموبايل ======
+    const floatCta = document.getElementById('floatingCta');
+    let shown = false;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 600 && !shown) { floatCta.style.display = 'block'; shown = true; }
+      if (window.scrollY < 400 && shown) { floatCta.style.display = 'none'; shown = false; }
+    });
 
     // ====== حد الإرسال: 3 رسائل/اليوم لكل إيميل (متصفح فقط) ======
     const RATE_STORE_KEY = 'contactRateV1';
@@ -368,6 +464,7 @@
       // ====== إرسال AJAX مع فحص الحد اليومي ======
       contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const message = document.getElementById('message').value.trim();
@@ -419,6 +516,13 @@
       // تهيئة أولية
       updateQuotaHint();
       updateFormState();
+    }
+
+    // ====== Service Worker (PWA Placeholder) ======
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {/* تجاهل الخطأ لو الملف غير موجود */});
+      });
     }
   </script>
 </body>
