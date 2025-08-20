@@ -10,38 +10,38 @@
   <meta name="keywords" content="تنظيم الروابط, مشاركة الروابط, إدارة الروابط, حفظ الروابط, Link Manager, Bookmark Manager, مزامنة الروابط, تطبيق روابط, عربي, LINK W">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://kevinoffice404.github.io/linkw-landing/">
+  <link rel="alternate" hreflang="ar" href="https://kevinoffice404.github.io/linkw-landing/">
 
   <!-- ===== Social (OG / Twitter) ===== -->
   <meta property="og:title" content="LINK W — منظّم ومشاركة الروابط بالعربي">
   <meta property="og:description" content="كل روابطك في مكان واحد — أسرع، أذكى، وأكثر أمانًا.">
   <meta property="og:image" content="https://i.postimg.cc/cCrLVMqk/image.png">
-  <meta property="og:image:width" content="800">
-  <meta property="og:image:height" content="800">
-  <meta property="og:secure_url" content="https://i.postimg.cc/cCrLVMqk/image.png">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_AR">
   <meta property="og:url" content="https://kevinoffice404.github.io/linkw-landing/">
+  <meta property="og:site_name" content="LINK W">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LINK W — منظّم ومشاركة الروابط بالعربي">
+  <meta name="twitter:description" content="كل روابطك في مكان واحد — أسرع، أذكى، وأكثر أمانًا.">
+
+  <!-- مؤلف/ناشر -->
+  <meta name="author" content="م/ محمد عبدالله">
 
   <!-- ===== Theme colors ===== -->
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
 
-  <!-- ===== PWA Placeholders ===== -->
-  <link rel="manifest" href="/manifest.webmanifest"> <!-- اختياري -->
+  <!-- ===== PWA Placeholders (اختياري) ===== -->
+  <link rel="manifest" href="/manifest.webmanifest">
 
   <!-- ===== Performance ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
-  <link rel="preconnect" href="https://formspree.io" crossorigin>
   <link rel="dns-prefetch" href="//i.postimg.cc">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg" imagesrcset="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg 800w" imagesizes="(max-width: 640px) 100vw, 33vw">
-
-  <!-- Sitemap reference (اختياري لكنه مفيد) -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
   <!-- ===== Tailwind ===== -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -107,9 +107,6 @@
     .back-to-top { position: fixed; bottom: 1rem; inset-inline-end: 1rem; z-index: 50; display: none; }
 
     :focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
-
-    /* تحسين وصول للروابط في النافبار */
-    nav a:focus-visible { outline: 2px solid #60a5fa; outline-offset: 3px; border-radius: .5rem; }
 
     .skip-link {
       position: absolute; inset-inline-start: 1rem; top: -40px;
@@ -190,14 +187,18 @@
   }
   </script>
 
-  <!-- WebSite (اختياري خفيف) -->
+  <!-- WebSite + SearchAction (متقدم) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"WebSite",
     "name":"LINK W",
     "url":"https://kevinoffice404.github.io/linkw-landing/",
-    "inLanguage":"ar"
+    "potentialAction":{
+      "@type":"SearchAction",
+      "target":"https://www.google.com/search?q=site%3Akevinoffice404.github.io%2Flinkw-landing+{search_term_string}",
+      "query-input":"required name=search_term_string"
+    }
   }
   </script>
 </head>
@@ -312,12 +313,12 @@
            data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
            data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="قائمة المجموعات داخل التطبيق — LINK W" loading="lazy" width="800" height="1600" decoding="async"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="قائمة المجموعات داخل التطبيق — LINK W" loading="lazy" width="800" height="1600"
            src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="مشاركة الروابط مع الفريق — LINK W" loading="lazy" width="800" height="1600" decoding="async"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="مشاركة الروابط مع الفريق — LINK W" loading="lazy" width="800" height="1600"
            src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg">
@@ -555,7 +556,7 @@
         }
         if (getCount(email) >= DAILY_LIMIT) {
           formStatus.className = "text-center text-sm mt-2 text-red-600";
-          formStatus.textContent = "لقد وصلت للحد الأقصى اليومي (٣ رسائل) لهذا البريد. جرّب غدًا.";
+          formStatus.textContent = "لقد وصلت للحد الأقصى اليومي (3 رسائل) لهذا البريد. جرّب غدًا.";
           formStatus.classList.remove('hidden');
           updateFormState();
           return;
