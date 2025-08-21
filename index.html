@@ -2,9 +2,20 @@
 <html lang="ar" dir="rtl" class="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- ===== SEO: Title + Description + Keywords + Canonical ===== -->
+  <!-- CSP مُحدّثة: السماح بخطوط Font Awesome من cdnjs (حل مشكلة الأيقونات) -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' https: data:;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+                 font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+                 script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com;
+                 connect-src 'self' https://formspree.io;
+                 form-action 'self' https://formspree.io;
+                 object-src 'none'; base-uri 'self'; frame-ancestors 'none'; worker-src 'self'">
+
+  <!-- ===== SEO ===== -->
   <title>LINK W — منظّم ومشاركة الروابط بالعربي | سريع وآمن ويدعم الوضع الليلي</title>
   <meta name="description" content="LINK W يساعدك على تنظيم وحفظ ومشاركة الروابط في مجموعات، مع مزامنة عبر الأجهزة ودعم كامل للوضع الداكن. مناسب للعمل، الدراسة، والفِرق.">
   <meta name="keywords" content="تنظيم الروابط, مشاركة الروابط, إدارة الروابط, حفظ الروابط, Link Manager, Bookmark Manager, مزامنة الروابط, تطبيق روابط, عربي, LINK W">
@@ -16,15 +27,18 @@
   <meta property="og:title" content="LINK W — منظّم ومشاركة الروابط بالعربي">
   <meta property="og:description" content="كل روابطك في مكان واحد — أسرع، أذكى، وأكثر أمانًا.">
   <meta property="og:image" content="https://i.postimg.cc/cCrLVMqk/image.png">
+  <meta property="og:image:alt" content="صورة موكاب واجهة تطبيق LINK W">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="ar_AR">
+  <meta property="og:locale" content="ar_EG">
   <meta property="og:url" content="https://kevinoffice404.github.io/linkw-landing/">
   <meta property="og:site_name" content="LINK W">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LINK W — منظّم ومشاركة الروابط بالعربي">
   <meta name="twitter:description" content="كل روابطك في مكان واحد — أسرع، أذكى، وأكثر أمانًا.">
+  <meta name="twitter:image" content="https://i.postimg.cc/cCrLVMqk/image.png">
+  <meta name="twitter:image:alt" content="صورة موكاب واجهة تطبيق LINK W">
 
-  <!-- مؤلف/ناشر -->
+  <!-- مؤلف -->
   <meta name="author" content="م/ محمد عبدالله">
 
   <!-- ===== Theme colors ===== -->
@@ -32,16 +46,19 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
 
-  <!-- ===== PWA Placeholders (اختياري) ===== -->
-  <link rel="manifest" href="/manifest.webmanifest">
+  <!-- ===== PWA (لو عندك ملفاتها) ===== -->
+  <link rel="manifest" href="./manifest.webmanifest">
 
   <!-- ===== Performance ===== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
   <link rel="preconnect" href="https://i.postimg.cc" crossorigin>
   <link rel="dns-prefetch" href="//i.postimg.cc">
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg" imagesrcset="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg 800w" imagesizes="(max-width: 640px) 100vw, 33vw">
+  <link rel="preload" as="image" href="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
+        imagesrcset="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg 800w"
+        imagesizes="(max-width: 640px) 100vw, 33vw">
 
   <!-- ===== Tailwind ===== -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,150 +74,16 @@
     }
   </script>
 
-  <!-- ===== Icons ===== -->
-  <link rel="icon" href="images/favicon.png">
-  <link rel="apple-touch-icon" href="images/icon-180.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- ===== Icons (FA من cdnjs بشكل عادي لضمان ظهور الأيقونات) ===== -->
+  <link rel="icon" href="./images/favicon.png">
+  <link rel="apple-touch-icon" href="./images/icon-180.png">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- ===== Styles ===== -->
-  <style>
-    html, body { font-family: 'Cairo', system-ui, sans-serif; }
-    html { scroll-behavior: smooth; }
-    :target { scroll-margin-top: 88px; }
-
-    .card-hover { transition: transform .25s ease, box-shadow .25s ease; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.12); }
-    .transition-theme { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
-    .fade { transition: opacity .4s ease-in-out; opacity: 1; }
-    .fade.fade-out { opacity: 0; }
-    .spin { display: inline-block; animation: spin .6s ease-in-out; }
-    @keyframes spin { 0% { transform: rotate(0) scale(1) } 50% { transform: rotate(180deg) scale(1.2) } 100% { transform: rotate(360deg) scale(1) } }
-
-    /* خلفية ناعمة */
-    body {
-      background:
-        radial-gradient(1200px 800px at 110% -10%, rgba(124,58,237,.08), transparent 60%),
-        radial-gradient(900px 700px at -10% 110%, rgba(59,130,246,.08), transparent 60%),
-        var(--tw-bg-opacity,1);
-    }
-    .dark body, body.dark {
-      background:
-        radial-gradient(1200px 800px at 110% -10%, rgba(167,139,250,.08), transparent 60%),
-        radial-gradient(900px 700px at -10% 110%, rgba(56,189,248,.08), transparent 60%),
-        #0f172a;
-    }
-
-    /* ===== UX Enhancers ===== */
-    .reveal { opacity: 0; transform: translateY(14px); }
-    .reveal.in { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
-
-    @keyframes pulseSoft {
-      0% { transform: translateZ(0) scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,.35); }
-      70% { transform: translateZ(0) scale(1.02); box-shadow: 0 0 0 12px rgba(59,130,246,0); }
-      100% { transform: translateZ(0) scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,0); }
-    }
-    .cta-pulse { animation: pulseSoft 2.4s ease-in-out infinite; }
-
-    .progress-wrap { position: fixed; inset-inline: 0; top: 0; height: 3px; z-index: 60; }
-    .progress-bar { width: 0%; height: 100%; }
-
-    .back-to-top { position: fixed; bottom: 1rem; inset-inline-end: 1rem; z-index: 50; display: none; }
-
-    :focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
-
-    .skip-link {
-      position: absolute; inset-inline-start: 1rem; top: -40px;
-      background: #1d4ed8; color: #fff; padding: .5rem .75rem; border-radius: .5rem;
-      transition: top .2s ease; z-index: 100;
-    }
-    .skip-link:focus { top: .75rem; }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
-      .reveal { opacity: 1 !important; transform: none !important; }
-      .cta-pulse { animation: none !important; }
-    }
-  </style>
-
-  <!-- ===== Theme init to avoid FOUC ===== -->
-  <script>
-    (() => {
-      const saved = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (saved === 'dark' || (!saved && prefersDark)) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    })();
-  </script>
-
-  <!-- ===== JSON-LD (Structured Data) ===== -->
-  <!-- Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LINK W",
-    "url": "https://kevinoffice404.github.io/linkw-landing/",
-    "logo": "https://i.postimg.cc/cCrLVMqk/image.png",
-    "sameAs": []
-  }
-  </script>
-
-  <!-- SoftwareApplication + AggregateRating + Reviews -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "LINK W",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Android, iOS, Web",
-    "inLanguage": "ar",
-    "description": "منظّم ومشاركة الروابط مع مزامنة ووضع داكن.",
-    "url": "https://kevinoffice404.github.io/linkw-landing/",
-    "image": "https://i.postimg.cc/cCrLVMqk/image.png",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "reviewCount": "3"
-    },
-    "review": [
-      {"@type":"Review","author":{"@type":"Person","name":"أحمد عبد الرحمن"},"reviewRating":{"@type":"Rating","ratingValue":"5"}},
-      {"@type":"Review","author":{"@type":"Person","name":"ندى مصطفى"},"reviewRating":{"@type":"Rating","ratingValue":"4"}},
-      {"@type":"Review","author":{"@type":"Person","name":"كريم حاتم"},"reviewRating":{"@type":"Rating","ratingValue":"4.5"}}
-    ]
-  }
-  </script>
-
-  <!-- FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"هل التطبيق مجاني؟","acceptedAnswer":{"@type":"Answer","text":"نعم، يمكنك استخدام LINK W مجانًا. قد نضيف مزايا مدفوعة اختيارية لاحقًا دون التأثير على المزايا الأساسية."}},
-      {"@type":"Question","name":"هل بياناتي آمنة؟","acceptedAnswer":{"@type":"Answer","text":"نولي الأمان والخصوصية أهمية كبيرة ونستخدم أفضل الممارسات لحماية بياناتك. تحكم كامل في إعدادات الخصوصية."}},
-      {"@type":"Question","name":"هل يدعم iOS و Android والويب؟","acceptedAnswer":{"@type":"Answer","text":"نعم، التطبيق مصمم ليعمل على Android و iOS بالإضافة إلى نسخة الويب."}},
-      {"@type":"Question","name":"هل أستطيع مشاركة مجموعات محددة فقط؟","acceptedAnswer":{"@type":"Answer","text":"بالتأكيد، يمكنك مشاركة مجموعة معينة أو روابط مختارة فقط بنقرة واحدة."}}
-    ]
-  }
-  </script>
-
-  <!-- WebSite + SearchAction (متقدم) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"LINK W",
-    "url":"https://kevinoffice404.github.io/linkw-landing/",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://www.google.com/search?q=site%3Akevinoffice404.github.io%2Flinkw-landing+{search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
+  <!-- ===== Site styles (ملف منفصل) ===== -->
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="transition-theme bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
 
@@ -213,7 +96,7 @@
   </div>
 
   <!-- Header -->
-  <header class="transition-theme sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
+  <header class="transition-theme sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800" tabindex="-1">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center gap-2 font-extrabold text-xl">
         <img src="https://i.postimg.cc/cCrLVMqk/image.png" alt="شعار LINK W" class="h-9 w-9 rounded-2xl object-cover" width="36" height="36" loading="eager" decoding="async" fetchpriority="high">
@@ -226,7 +109,7 @@
         <a href="#faq" class="hover:underline nav-link">الأسئلة الشائعة</a>
         <a href="#contact" class="hover:underline nav-link">تواصل</a>
       </nav>
-      <button id="themeToggle" class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300" aria-label="تبديل الوضع (فاتح/داكن)" aria-pressed="true">☀️</button>
+      <button id="themeToggle" class="transition-theme p-2 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-yellow-300" aria-label="تبديل الوضع (فاتح/داكن)">☀️</button>
     </div>
   </header>
 
@@ -308,17 +191,29 @@
   <section class="max-w-6xl mx-auto px-4 py-8" aria-labelledby="galleryTitle">
     <h2 id="galleryTitle" class="text-2xl font-bold text-center reveal">صور من التطبيق</h2>
     <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="واجهة التطبيق الرئيسية — LINK W" loading="eager" fetchpriority="high" decoding="async" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal"
+           alt="واجهة التطبيق الرئيسية — LINK W"
+           loading="eager" fetchpriority="high" decoding="async"
+           width="800" height="1600"
+           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
            src="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
            data-light="https://i.postimg.cc/C1ghVt9Q/imagesscreen1.jpg"
            data-dark="https://i.postimg.cc/wT9x7Sf5/Whats-App-Image-2025-08-18-at-00-53-34-ad6d6296.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="قائمة المجموعات داخل التطبيق — LINK W" loading="lazy" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal"
+           alt="قائمة المجموعات داخل التطبيق — LINK W"
+           loading="lazy" fetchpriority="low" decoding="async"
+           width="800" height="1600"
+           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
            src="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-light="https://i.postimg.cc/sDXVy50s/imagesscreen2.jpg"
            data-dark="https://i.postimg.cc/SRk4YMrQ/Whats-App-Image-2025-08-18-at-00-53-34-a2134dbf.jpg">
 
-      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal" alt="مشاركة الروابط مع الفريق — LINK W" loading="lazy" width="800" height="1600"
+      <img class="transition-theme rounded-2xl shadow card-hover fade w-full h-auto reveal"
+           alt="مشاركة الروابط مع الفريق — LINK W"
+           loading="lazy" fetchpriority="low" decoding="async"
+           width="800" height="1600"
+           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
            src="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-light="https://i.postimg.cc/7ZZXKZ6B/Whats-App-Image-2025-08-17-at-23-24-24-0d3c4904.jpg"
            data-dark="https://i.postimg.cc/6pgNLS0m/Whats-App-Image-2025-08-18-at-00-53-35-aeed823a.jpg">
@@ -432,7 +327,7 @@
   </section>
 
   <!-- Back to top -->
-  <button id="backToTop" class="back-to-top rounded-full bg-blue-700 text-white p-3 shadow-lg hover:bg-blue-800" aria-label="العودة للأعلى">
+  <button id="backToTop" class="back-to-top rounded-full bg-blue-700 text-white p-3 shadow-lg hover:bg-blue-800" aria-label="العودة للأعلى" aria-hidden="true">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
@@ -455,6 +350,7 @@
     function swapImages() {
       const isDark = html.classList.contains('dark');
       document.querySelectorAll('img[data-light][data-dark]').forEach(img => {
+        if (!img.classList.contains('fade')) img.classList.add('fade');
         img.classList.add('fade-out');
         setTimeout(() => {
           const target = isDark ? img.getAttribute('data-dark') : img.getAttribute('data-light');
@@ -471,6 +367,18 @@
       applyIcon();
       swapImages();
     });
+
+    try {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)');
+      mq.addEventListener('change', () => {
+        const saved = localStorage.getItem('theme');
+        if (!saved) {
+          if (mq.matches) html.classList.add('dark'); else html.classList.remove('dark');
+          applyIcon(); swapImages();
+        }
+      });
+    } catch {}
+
     applyIcon(); swapImages();
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -593,21 +501,11 @@
       updateFormState();
     }
 
-    // ===== Service Worker (اختياري) =====
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-      });
-    }
-
     // ===== Reveal on scroll =====
     const reveals = document.querySelectorAll('.reveal');
     const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
       });
     }, { threshold: 0.12 }) : null;
     if (io) reveals.forEach(el => io.observe(el)); else reveals.forEach(el => el.classList.add('in'));
@@ -627,18 +525,17 @@
     // ===== Back to top =====
     const backToTop = document.getElementById('backToTop');
     window.addEventListener('scroll', () => {
-      backToTop.style.display = (window.scrollY > 700) ? 'inline-flex' : 'none';
+      const show = window.scrollY > 700;
+      backToTop.style.display = show ? 'inline-flex' : 'none';
+      backToTop.setAttribute('aria-hidden', String(!show));
     });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.querySelector('header')?.focus?.();
+    });
 
-    // ===== ScrollSpy (nav active link) =====
-    const sections = [
-      { id: 'features' },
-      { id: 'galleryTitle' },
-      { id: 'testimonials' },
-      { id: 'faq' },
-      { id: 'contact' },
-    ];
+    // ===== ScrollSpy =====
+    const sections = [{id:'features'},{id:'galleryTitle'},{id:'testimonials'},{id:'faq'},{id:'contact'}];
     const links = Array.from(document.querySelectorAll('.nav-link'));
     function setActive(id) {
       links.forEach(a => {
@@ -647,17 +544,18 @@
         a.classList.toggle('text-blue-700', on);
         a.classList.toggle('dark:text-blue-400', on);
         a.classList.toggle('font-semibold', on);
+        if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
       });
     }
     const spyObs = ('IntersectionObserver' in window) ? new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) setActive(e.target.id);
-      });
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 }) : null;
-    if (spyObs) {
-      sections.forEach(s => {
-        const el = document.getElementById(s.id);
-        if (el) spyObs.observe(el);
+    if (spyObs) sections.forEach(s => { const el = document.getElementById(s.id); if (el) spyObs.observe(el); });
+
+    // ===== Service Worker (لو موجود) =====
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => {});
       });
     }
   </script>
