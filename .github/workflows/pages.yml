@@ -2,7 +2,7 @@ name: Deploy static site to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   # غيّرها لو فرعك مش main
+    branches: [ main ]       # غيّرها لو فرعك مش main
   workflow_dispatch:
 
 permissions:
@@ -18,24 +18,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      # جهّز مجلد dist محتوياته فقط هي اللي هتتنشر
+      # (مهم) تهيئة Pages بالطريقة الرسمية
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # حضّر مجلد dist برضه (انسخ ملفاتك الأساسية)
       - name: Prepare static output
         run: |
+          set -e
           mkdir -p dist
-          cp -f index.html dist/
-          cp -f styles.css dist/
+          cp -f index.html dist/ || true
+          cp -f styles.css dist/ || true
           if [ -d images ]; then cp -r images dist/images; fi
           if [ -f sw.js ]; then cp sw.js dist/; fi
           if [ -f manifest.webmanifest ]; then cp manifest.webmanifest dist/; fi
           touch dist/.nojekyll
 
+      # رفع الـartifact باسم github-pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist          # مهم: ارفع مجلد dist فقط
-          name: github-pages    # مهم: اسم الـartifact لازم يكون github-pages
+          path: ./dist
+          name: github-pages
 
   deploy:
     needs: build
@@ -48,6 +55,6 @@ jobs:
         id: deploy
         uses: actions/deploy-pages@v4
         with:
-          timeout: 1800000         # 30 دقيقة بدل 10 (يمنع الإلغاء السريع)
+          timeout: 1800000           # 30 دقيقة بدل 10
           error_count: 30
           reporting_interval: 10000
