@@ -1,13 +1,28 @@
-html, body { font-family: 'Cairo', system-ui, sans-serif; }
+html, body { 
+  font-family: 'Cairo', system-ui, sans-serif; 
+}
 html { scroll-behavior: smooth; }
 :target { scroll-margin-top: 88px; }
 
-.card-hover { transition: transform .25s ease, box-shadow .25s ease; }
-.card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,.12); }
-.transition-theme { transition: background-color .35s ease, color .35s ease, border-color .35s ease; }
-.fade { transition: opacity .4s ease-in-out; opacity: 1; }
+.card-hover { 
+  transition: transform .25s ease, box-shadow .25s ease; 
+}
+.card-hover:hover { 
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 30px rgba(0,0,0,.12); 
+}
+.transition-theme { 
+  transition: background-color .35s ease, color .35s ease, border-color .35s ease; 
+}
+.fade { 
+  transition: opacity .4s ease-in-out; 
+  opacity: 1; 
+}
 .fade.fade-out { opacity: 0; }
-.spin { display: inline-block; animation: spin .6s ease-in-out; }
+.spin { 
+  display: inline-block; 
+  animation: spin .6s ease-in-out; 
+}
 @keyframes spin {
   0% { transform: rotate(0) scale(1) }
   50% { transform: rotate(180deg) scale(1.2) }
@@ -29,8 +44,15 @@ body {
 }
 
 /* ===== UX Enhancers ===== */
-.reveal { opacity: 0; transform: translateY(14px); }
-.reveal.in { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
+.reveal { 
+  opacity: 0; 
+  transform: translateY(14px); 
+}
+.reveal.in { 
+  opacity: 1; 
+  transform: translateY(0); 
+  transition: opacity .6s ease, transform .6s ease; 
+}
 
 @keyframes pulseSoft {
   0% { transform: translateZ(0) scale(1); box-shadow: 0 0 0 0 rgba(59,130,246,.35); }
@@ -39,12 +61,21 @@ body {
 }
 .cta-pulse { animation: pulseSoft 2.4s ease-in-out infinite; }
 
-.progress-wrap { position: fixed; inset-inline: 0; top: 0; height: 3px; z-index: 60; }
+.progress-wrap { 
+  position: fixed; inset-inline: 0; top: 0; 
+  height: 3px; z-index: 60; 
+}
 .progress-bar { width: 0%; height: 100%; }
 
-.back-to-top { position: fixed; bottom: 1rem; inset-inline-end: 1rem; z-index: 50; display: none; }
+.back-to-top { 
+  position: fixed; bottom: 1rem; inset-inline-end: 1rem; 
+  z-index: 50; display: none; 
+}
 
-:focus-visible { outline: 3px solid #60a5fa; outline-offset: 2px; }
+:focus-visible { 
+  outline: 3px solid #60a5fa; 
+  outline-offset: 2px; 
+}
 
 .skip-link {
   position: absolute; inset-inline-start: 1rem; top: -40px;
@@ -57,4 +88,49 @@ body {
   * { animation: none !important; transition: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; }
   .cta-pulse { animation: none !important; }
+}
+
+/* ===== زر التحميل المميز ===== */
+.download-btn {
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, .35);
+}
+
+.download-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, .45);
+}
+
+.download-btn:active {
+  transform: scale(0.97);
+}
+
+/* تأثير لمعان */
+.download-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-25deg);
+}
+
+.download-btn:hover::after {
+  animation: shine 1s forwards;
+}
+
+@keyframes shine {
+  100% { left: 125%; }
 }
